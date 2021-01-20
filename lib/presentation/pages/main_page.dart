@@ -48,7 +48,15 @@ class MainPage extends StatelessWidget {
                 else
                   return Text('Ready to Use');
               } else
-                return Text('Error');
+                return Column(
+                  children: [
+                    Text('Error'),
+                    IconButton(
+                      icon: Icon(Icons.rotate_right,color: Theme.of(context).primaryColor,),
+                      onPressed: context.read<SearchWordCubit>().initFetchData,
+                    )
+                  ],
+                );
             },
           )
         ],
